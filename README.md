@@ -21,10 +21,10 @@ PageRank is a calculation evaluates the quality and quantity of links to a webpa
  ![alt text](https://github.com/jieren123/Bigdata_Project_Pagerank/blob/master/Diagrams/pagerank.png "page_rank")
 
 ## Dead-ends & Spider-traps Explains 
-- A group of pages is a **spider-trap** if there are no links from within the group to outside the group.
+- A group of pages is a **spider-trap** if there are no links from within the group to outside the group. This leads some of columns will sum to 1 rather than 0.
  ![alt text](https://github.com/jieren123/Bigdata_Project_Pagerank/blob/master/Diagrams/one_node_spider_trap.png "spider_traps")
 
-- Pages with no outlinks are **dead-ends** for the random surfer 
+- Pages with no outlinks are **dead-ends** for the random surfer. If dead ends are allowed, the transition matrix of the Web is no longer stochastic, some of the columns will sum to 0 rather than 1.
  ![alt text](https://github.com/jieren123/Bigdata_Project_Pagerank/blob/master/Diagrams/two_levels_dead_ends.png "dead-end")
 
 ## Main Files: 
