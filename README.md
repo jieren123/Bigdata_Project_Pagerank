@@ -7,8 +7,13 @@ After iterated three times, I selected Page ID =6 as an example (black point). T
  "Page Rank")
 
 ## Dataset Description: 
-- transition.txt has the following format: `to1 from1 from2 from3 from4......` where `to1` is an interger labelling a page link to and
-where `from1` is an integer labelling a page that has links from, separating by '\t'.
+- transition.txt has the following format: 
+ ```
+ from1: to11 to12 to13 ...
+ from2: to21 to22 to23 ...
+ ...
+ ```
+ where `from1` is an integer labelling a page that has links from and where `to1` is an interger labelling a page link to, separating by '\t'.
 - pr.txt has the following format: `page_id prob` where page_id is ID of the page and prob is probaility of each page, separating by '\t'.
 
 ## PageRank Alogrithm
