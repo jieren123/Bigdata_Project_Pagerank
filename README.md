@@ -20,6 +20,9 @@ After iterated three times, I selected Page ID =6 as an example (black point). T
 PageRank is a calculation evaluates the quality and quantity of links to a webpage to determine a relatvie score of that page's importantce and authority. This project proposes a generalization of the PageRank aglorithm based on both out-links and in-links by using a iterative algorithm as an alternative interpretation of the matrix based techniques Also the PageRank algorithm can specify a probability at any step that a person will continue clicking outgoing links.
  ![alt text](https://github.com/jieren123/Bigdata_Project_Pagerank/blob/master/Diagrams/pagerank.png "page_rank")
 
+## Architecture Overview Diagram
+ ![alt text](https://github.com/jieren123/Bigdata_Project_Pagerank/blob/master/Diagrams/Page_Rank%20flowchat.png "flowchat")
+
 ## Dead-ends & Spider-traps Explains 
 - A group of pages is a **spider-trap** if there are no links from within the group to outside the group. This leads some of columns will sum to 1 rather than 0.
  ![alt text](https://github.com/jieren123/Bigdata_Project_Pagerank/blob/master/Diagrams/one_node_spider_trap.png "spider_traps")
@@ -27,16 +30,17 @@ PageRank is a calculation evaluates the quality and quantity of links to a webpa
 - Pages with no outlinks are **dead-ends** for the random surfer. If dead ends are allowed, the transition matrix of the Web is no longer stochastic, some of the columns will sum to 0 rather than 1.
  ![alt text](https://github.com/jieren123/Bigdata_Project_Pagerank/blob/master/Diagrams/two_levels_dead_ends.png "dead-end")
 
+To avoid those problems, modify the calculation of PageRank by multipiling teleporting parameter to transition matrix:
+ ```
+ PR(N)=(1-β)*PR(N-1)*Transition Matrix + β*PR(N-1)
+ β is teleport parameter , usually range from 0.1 to 0.2
+``` 
 ## Main Files: 
 - UnitMultiplicaiton.java: This class is the mapper class. It takes an input file which has graph data in form of node and its adjacency lists and generates files containing nodes, their page ranks and their adjacency lists. Finally emit a key value pair of (page-id,prob)
 
 - UnitSum.java: This class is the reducer class. It receives a key: page-id and a list of its values: probabilities. For each value in the list If it is a node, the initialize the node with this node. Else if it a pagerank value sum it up and set the pagerank by its convergence value into the list. 
 
 - Driver.java
-
-## Architecture Overview Diagram
-
-
 
 ## Compiling and Running
 ```
